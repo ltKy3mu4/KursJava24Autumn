@@ -1,6 +1,8 @@
 package ru.mpei.l2;
 
-class Student {
+import java.util.Objects;
+
+public class Student {
     private String name;
     private String surname;
     private int age = 16;
@@ -30,6 +32,29 @@ class Student {
                 ", age=" + age +
                 ", presentInLesson=" + presentInLesson +
                 '}';
+    }
+
+//    public int hashCode(){
+//        int n;
+//        if (presentInLesson) {
+//            n = 1;
+//        } else {
+//            n = 0;
+//        }
+//        return name.length() + surname.length() + age + n;
+//    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return age == student.age && presentInLesson == student.presentInLesson && Objects.equals(name, student.name) && Objects.equals(surname, student.surname);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, surname, age, presentInLesson);
     }
 
     public String printInfo(){
@@ -78,5 +103,10 @@ class Student {
 
     public void setPresentInLesson(boolean presentInLesson) {
         this.presentInLesson = presentInLesson;
+    }
+
+    public static Student createDefualtStudent(){
+        Student s1 = new Student("Vanya", "Ivanov", 12, false);
+        return s1;
     }
 }

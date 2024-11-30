@@ -4,6 +4,6 @@ public class Exchanger {
     private Converter[] converters;
 
     public double convert(double value, Type input, Type output){
-
+        return 0.0;
     }
 }

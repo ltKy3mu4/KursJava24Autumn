@@ -16,4 +16,8 @@ public class Calculations {
         return s;
     }
 
+    public static double sin(double degrees){
+        return  4 * degrees * (180 - degrees) / (40500 - degrees * (180 - degrees));
+    }
+
 }

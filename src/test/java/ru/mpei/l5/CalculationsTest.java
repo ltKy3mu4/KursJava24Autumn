@@ -48,6 +48,13 @@ class CalculationsTest {
         Assertions.assertNotNull(name);
     }
 
+    @Test
+    public void sinTest1(){
+        double sin = Calculations.sin(30);
+        System.out.println(sin);
+        Assertions.assertEquals(0.5, sin, 0.01);
+    }
+
     @BeforeEach
     public void beforeEach(){
         startTs = System.currentTimeMillis();
